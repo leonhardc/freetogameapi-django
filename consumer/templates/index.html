@@ -129,12 +129,13 @@
         </section>
 
         <div class="row my-2 mx-5 py-3">
-            <form action="">
+            <form action="{% url 'filter' %}">
+                {% csrf_token %}
                 <div class="row">
                     <div class="col ps-5">
                         <div class="form-floating">
                             <select name="plataforma" class="form-select" id="" aria-label="Floating label select example">
-                                <option selected>Clique aqui</option>
+                                <option value="" selected>Clique aqui</option>
                                 <option value="all">Todas</option>
                                 <option value="browser">browser</option>
                                 <option value="pc">PC</option>
@@ -145,7 +146,7 @@
                     <div class="col ps-5">
                         <div class="form-floating">
                             <select name="categoria" class="form-select" id="" aria-label="Floating label select example">
-                                <option selected>Clique aqui</option>
+                                <option value="" selected>Clique aqui</option>
                                 <option value="mmorpg">mmorpg</option>
                                 <option value="shooter">shooter</option>
                                 <option value="strategy">strategy</option>
@@ -161,7 +162,7 @@
 
                         <div class="form-floating">
                         <select name="ordem" class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Clique aqui</option>
+                            <option value="" selected>Clique aqui</option>
                             <option value="date">Data de Lançamento</option>
                             <option value="pop">Popularidade</option>
                             <option value="alphabetic">Ordem alfabética</option>
@@ -173,7 +174,7 @@
                     </div>
                     <div class="col d-flex align-items-center justify-content-center">
 
-                        <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+                        <button type="submit" class="btn btn-dark">Aplicar Filtros</button>
                         
                     </div>
                 </div>
