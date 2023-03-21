@@ -10,6 +10,7 @@
     <title>Consumer API FreeToGame</title>
 
     <style>
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -129,24 +130,24 @@
         </section>
 
         <div class="row my-2 mx-5 py-3">
-            <form action="{% url 'filter' %}">
-                {% csrf_token %}
+            <form action="">
+                <!-- {% csrf_token %} -->
                 <div class="row">
                     <div class="col ps-5">
                         <div class="form-floating">
                             <select name="plataforma" class="form-select" id="" aria-label="Floating label select example">
-                                <option value="" selected>Clique aqui</option>
+                                <option value="" selected></option>
                                 <option value="all">Todas</option>
                                 <option value="browser">browser</option>
                                 <option value="pc">PC</option>
                             </select>
-                            <label for="floatingSelect">Plataforma:</label>
+                            <label for="floatingSelect">Plataforma</label>
                         </div>
                     </div>
                     <div class="col ps-5">
                         <div class="form-floating">
                             <select name="categoria" class="form-select" id="" aria-label="Floating label select example">
-                                <option value="" selected>Clique aqui</option>
+                                <option value="" selected></option>
                                 <option value="mmorpg">mmorpg</option>
                                 <option value="shooter">shooter</option>
                                 <option value="strategy">strategy</option>
@@ -155,20 +156,20 @@
                                 <option value="sports">sports</option>
                                 <option value="social">social</option>
                             </select>
-                            <label for="floatingSelect">Categoria:</label>
+                            <label for="floatingSelect">Categoria</label>
                         </div>
                     </div>
                     <div class="col ps-5">
 
                         <div class="form-floating">
                         <select name="ordem" class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option value="" selected>Clique aqui</option>
+                            <option value="" selected></option>
                             <option value="date">Data de Lançamento</option>
                             <option value="pop">Popularidade</option>
                             <option value="alphabetic">Ordem alfabética</option>
                             <option value="relevance">Relevancia</option>
                         </select>
-                        <label for="floatingSelect">Ordenar por:</label>
+                        <label for="floatingSelect">Ordem</label>
                         </div>
 
                     </div>

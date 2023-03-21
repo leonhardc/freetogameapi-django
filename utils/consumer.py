@@ -7,8 +7,11 @@ class ConsumerAPI:
     def __init__(self) -> None:
         self.url = 'https://www.freetogame.com/api/games'
 
-    def consume(self, filter=None):
-        request = json.loads(requests.get(self.url).content)
+    def consume(self, url=None):
+        if url: 
+            request = json.loads(requests.get(url).content)    
+        else: 
+            request = json.loads(requests.get(self.url).content)
         return request
 
 if __name__== '__main__':
