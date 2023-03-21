@@ -83,6 +83,7 @@
 
 
 <body>
+    {% load lr_filters %}
     <header>
         <div class="collapse bg-dark" id="navbarHeader">
             <div class="container">
@@ -142,7 +143,7 @@
                                 aria-label="Floating label select example">
                                 <option value="" selected></option>
                                 <option value="all">Todas</option>
-                                <option value="browser">browser</option>
+                                <option value="browser">Navegador</option>
                                 <option value="pc">PC</option>
                             </select>
                             <label for="floatingSelect">Plataforma</label>
@@ -200,12 +201,13 @@
                             <img class="bd-placeholder-img card-img-top" src="{{game.thumbnail}}" alt="image game">
 
                             <div class="card-body card-body-align">
+                                <h6 class="card-title">{{game.title}}</h6>
                                 <p class="card-text">{{game.short_description}}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Detalhes</button>
                                     </div>
-                                    <small class="text-muted">{{game.genre}}</small>
+                                    <small class="text-muted">{{game.release_date|format_date}} | {{game.genre}}</small>
                                 </div>
                             </div>
                         </div>
