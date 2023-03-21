@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'parciais/_head.html' %}
+</head>
+
+
+<body>
+    <header>
+        {% include 'parciais/_header.html' %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="text-muted py-5">
+        {% include 'parciais/_footer.html' %}
+    </footer>
+    {% include 'parciais/_scripts.html' %}
+</body>
+
+</html>

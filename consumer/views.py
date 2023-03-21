@@ -3,12 +3,11 @@ from django.http import HttpResponse
 from utils.consumer import ConsumerAPI
 from django.shortcuts import redirect
 from django.core.paginator import Paginator
+from pprint import pprint
 
-QUERY_DICT = {}
 
 # Create your views here.
 def index(request):
-    referer = request.META.get('HTTP_REFERER')
     NUMBER_OF_GAMES = 12
     plataforma = request.GET.get('plataforma')
     categoria = request.GET.get('categoria')
@@ -52,4 +51,8 @@ def index(request):
 
     return render(request, 'index.html', context={'games': games_list})
 
-
+def detalhe(request, id):
+    consumer = ConsumerAPI()
+    game = consumer.detail_game(id)
+    # pprint(game)
+    return render(request, 'detalhes.html', context={'game': game})

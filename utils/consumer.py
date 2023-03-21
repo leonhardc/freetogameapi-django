@@ -13,6 +13,11 @@ class ConsumerAPI:
         else: 
             request = json.loads(requests.get(self.url).content)
         return request
+    
+    def detail_game(self, id):
+        url = f'https://www.freetogame.com/api/game?id={id}'
+        return json.loads(requests.get(url).content)
+
 
 if __name__== '__main__':
     consumer = ConsumerAPI()
