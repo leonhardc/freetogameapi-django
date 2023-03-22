@@ -54,5 +54,5 @@ def index(request):
 def detalhe(request, id):
     consumer = ConsumerAPI()
     game = consumer.detail_game(id)
-    # pprint(game)
+    pprint(type(game.get('screenshots')))
     return render(request, 'detalhes.html', context={'game': game})
