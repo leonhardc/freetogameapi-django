@@ -5,7 +5,7 @@
 {% block content %}
 
 <style type="text/css">
-    html{
+    html {
         overflow-x: hidden;
     }
 
@@ -103,12 +103,31 @@
     .dot:hover {
         background-color: #717171;
     }
+    .button-save{
+        width: fit-content;
+    }
 </style>
-
+<!-- Thumbnail -->
 <section class="content d-flex justify-content-center">
     <img src="{{game.thumbnail}}" alt="thumbnail">
 </section>
 
+<div class="row mx-5 px-5 d-flex justify-content-end pt-3">
+    <div class="button-save mx-5">
+        <a href="{% url 'savegame' game.id %}">
+            <button class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
+                Save Game
+            </button>
+        </a>
+    </div>
+</div>
+
+<!-- Conteudo da página-->
 <section class="content d-flex justify-content-center mt-5">
     <div class="row mx-5 px-5">
         <h1 class="text-center">{{game.title}}</h1>
@@ -204,12 +223,12 @@
     <script type="text/javascript">
         let slideIndex = 1;
         showSlides(slideIndex);
-    
+
         // Next/previous controls
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
-    
+
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("mySlides");

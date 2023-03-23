@@ -1,4 +1,5 @@
 {% load static %}
+{% load lr_filters %}
 
 <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
@@ -30,9 +31,22 @@
             </svg>
             <strong>FreeToGame API</strong>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-            aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
+        <!-- save_game session -->
+        <div>
+            {% if request.session.games_salvos %}
+            <a href="">
+                <button type="button" class="btn btn-secondary">
+                    Games <span class="badge badge-light">{{request.session.games_salvos|length_list}}</span>
+                </button>
+            </a>
+            {% endif %}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+
     </div>
 </div>

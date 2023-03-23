@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from utils.consumer import ConsumerAPI
 from django.shortcuts import redirect
@@ -6,12 +6,15 @@ from django.core.paginator import Paginator
 from pprint import pprint
 
 
-# Create your views here.
 def index(request):
     NUMBER_OF_GAMES = 12
     plataforma = request.GET.get('plataforma')
     categoria = request.GET.get('categoria')
     ordem = request.GET.get('ordem')
+
+    if not request.session.get('games_salvos'):
+        request.session['games_salvos'] = []
+        request.session.save()
 
     
     if plataforma != '' or categoria != '' or ordem != '':
@@ -55,3 +58,18 @@ def detalhe(request, id):
     consumer = ConsumerAPI()
     game = consumer.detail_game(id)
     return render(request, 'detalhes.html', context={'game': game})
+
+def saveGame(request, id):
+    referer = request.META.get('HTTP_REFERER', 'consumer:index')
+    consumer = ConsumerAPI()
+    game = consumer.detail_game(id)
+
+    if request.session.get('games_salvos') == []:
+        pass
+
+    request.session['games_salvos'].append(game)
+    request.session.save()
+    return redirect(referer)
+    
+
+
