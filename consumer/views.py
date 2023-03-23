@@ -60,16 +60,40 @@ def detalhe(request, id):
     return render(request, 'detalhes.html', context={'game': game})
 
 def saveGame(request, id):
-    referer = request.META.get('HTTP_REFERER', 'consumer:index')
-    consumer = ConsumerAPI()
-    game = consumer.detail_game(id)
 
-    if request.session.get('games_salvos') == []:
-        pass
+    referer = request.META.get('HTTP_REFERER', 'index')
+    match = False
 
-    request.session['games_salvos'].append(game)
+    for game in request.session.get('games_salvos'):
+        if game.get('id') == id:
+            match = True
+    
+    if not match:
+        consumer = ConsumerAPI()
+        game = consumer.detail_game(id)
+
+        if request.session.get('games_salvos') == []:
+            pass
+
+        request.session['games_salvos'].append(game)
+        request.session.save()
+
+    return redirect(referer)
+
+
+def deleteGame(request, id):
+
+    referer = request.META.get('HTTP_REFERER', 'index')
+    index = 0
+    for game in request.session.get('games_salvos'):
+        if game.get('id') == id:
+            request.session.get('games_salvos').pop(index)
+        else:
+            index += 1
     request.session.save()
     return redirect(referer)
-    
 
+def savedGames(request):
+    # pprint(request.session.get('games_salvos'))
+    return render(request, 'games_salvos.html')
 

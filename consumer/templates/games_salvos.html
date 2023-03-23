@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load lr_filters %}
+
+{% block content %}
+    <style>
+        .section-heigth{
+            min-height: 90vh;
+        }
+    </style>
+    <section class="container my-5 section-heigth">
+        <h4 class="mb-4">Games Salvos</h4>
+        
+        {% if request.session.games_salvos %}
+        <div class="row bg-light py-3 border-top border-bottom fw-bold">
+            <div class="col">ID</div>
+            <div class="col">Titulo</div>
+            <div class="col">Short Description</div>
+            <div class="col"></div>
+            <div class="col">
+            </div>
+        </div>
+        {% for game in  request.session.games_salvos %}
+        <div class="row mb-3 border-bottom py-2">
+            <div class="col d-flex align-items-center">{{game.id}}</div>
+            <div class="col d-flex align-items-center">{{game.title}}</div>
+            <div class="col d-flex align-items-center">{{game.short_description}}</div>
+            <div class="col d-flex align-items-center justify-content-center"><a href="{% url 'detalhes' game.id %}">Game Info</a></div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <a href="{% url 'delGame' game.id %}">
+                    <button class="btn btn-danger">
+                        Excluir
+                    </button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </section>
+{% endblock %}

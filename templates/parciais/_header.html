@@ -35,7 +35,7 @@
         <!-- save_game session -->
         <div>
             {% if request.session.games_salvos %}
-            <a href="">
+            <a href="{% url 'savedGames' %}">
                 <button type="button" class="btn btn-secondary">
                     Games <span class="badge badge-light">{{request.session.games_salvos|length_list}}</span>
                 </button>
