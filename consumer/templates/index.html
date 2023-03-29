@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load lr_filters %}
 {% block content %}
-<section class="py-5 pb-0 text-center container bg d-flex align-items-end justify-content-center" style="min-height: 250px;">
+<section class="py-5 pb-0 text-center container bg d-flex align-items-end justify-content-center"
+    style="min-height: 250px;">
     <div class="row py-lg-1" style="display: block; width: 100%;">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light text-white">FreeToGame API</h1>
@@ -94,45 +95,48 @@
     </div>
 
     <!-- Paginação -->
-    <nav aria-label="Page navigation example" class="mt-3 d-flex justify-content-center">
+    <nav aria-label="Page navigation example" class="mt-5 pt-3 d-flex justify-content-center">
         <ul class="pagination">
             {% if games.has_previous %}
-            {% if request.GET.plataforma or request.GET.categoria or request.GET.ordem %}
-            <li class="page-item"><a class="page-link"
-                    href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.previous_page_number}}">Anterior</a>
-            </li>
-            <li class="page-item"><a class="page-link"
-                    href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.previous_page_number}}">{{games.previous_page_number}}</a>
-            </li>
-            {% else %}
-            <li class="page-item"><a class="page-link" href="?page={{games.previous_page_number}}">Anterior</a>
-            </li>
-            <li class="page-item"><a class="page-link"
-                    href="?page={{games.previous_page_number}}">{{games.previous_page_number}}</a>
-            </li>
-            {% endif %}
+                {% if request.GET.plataforma or request.GET.categoria or request.GET.ordem %}
+                    <li class="page-item "><a class="page-link text-dark"
+                            href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.previous_page_number}}">Anterior</a>
+                    </li>
+                    <li class="page-item "><a class="page-link text-dark"
+                            href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.previous_page_number}}">{{games.previous_page_number}}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item "><a class="page-link text-dark" href="?page={{games.previous_page_number}}">Anterior</a>
+                    </li>
+                    <li class="page-item "><a class="page-link text-dark"
+                            href="?page={{games.previous_page_number}}">{{games.previous_page_number}}</a>
+                    </li>
+                {% endif %}
             {% endif %}
 
-            <li class="page-item"><a class="page-link bg-primary text-white" href="#">{{games.number}}</a></li>
+            <li class="page-item"><a class="page-link bg-dark fw-bold text-white" href="#">{{games.number}}</a></li>
 
             {% if games.has_next %}
-            {% if request.GET.plataforma or request.GET.categoria or request.GET.ordem %}
-            <li class="page-item"><a class="page-link"
-                    href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.next_page_number}}">{{games.next_page_number}}</a>
-            </li>
-            <li class="page-item"><a class="page-link"
-                    href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.next_page_number}}">Próxima</a>
-            </li>
-            {% else %}
-            <li class="page-item"><a class="page-link"
-                    href="?page={{games.next_page_number}}">{{games.next_page_number}}</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="?page={{games.next_page_number}}">Próxima</a>
-            </li>
+                {% if request.GET.plataforma or request.GET.categoria or request.GET.ordem %}
+                    <li class="page-item">
+                        <a class="page-link text-dark"
+                            href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.next_page_number}}">{{games.next_page_number}}</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark"
+                            href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.next_page_number}}">Próxima</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="?page={{games.next_page_number}}">{{games.next_page_number}}</a>
+                    </li>
+                    <li class="page-item"><a class="page-link text-dark" href="?page={{games.next_page_number}}">Próxima</a>
+                    </li>
+                {% endif %}
             {% endif %}
-            {% endif %}
-            <li class="page-item d-flex justify-content-center align-items-center ps-3"><span
-                    class="text-primary">Página {{games.number}} de {{games.paginator.num_pages }}</span></li>
+            <li class="page-item d-flex justify-content-center align-items-center ps-3">
+                <span class="text-dark">Página {{games.number}} de {{games.paginator.num_pages }}</span>
+            </li>
         </ul>
 
     </nav>
