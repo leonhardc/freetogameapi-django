@@ -1,5 +1,5 @@
 html {
-    overflow-x: hidden;
+    overflow-x: hidden;;
 }
 
 img {
@@ -173,4 +173,8 @@ img {
 
 .button-save{
     width: fit-content;
+}
+
+.card-body-heigth{
+    height: 205px;
 }
