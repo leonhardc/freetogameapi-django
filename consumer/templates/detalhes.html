@@ -3,31 +3,89 @@
 
 
 {% block content %}
+<!-- Title -->
+<h1 class="text-center mt-5">{{game.title}}</h1>
+
 <!-- Thumbnail -->
-<section class="content d-flex justify-content-center">
-    <img src="{{game.thumbnail}}" alt="thumbnail">
+<section class="d-flex justify-content-center">
+    <div class="row">
+        <div class="col">
+            <div class="row mt-5">
+                <img src="{{game.thumbnail}}" alt="thumbnail">
+            </div>
+            <div class="row mt-3">
+                <div class=" d-flex justify-content-center">
+                    <a href="{% url 'savegame' game.id %}">
+                        <button class="btn btn-secondary px-5 py-2 content-buttom">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z" />
+                            </svg>
+                            Save Game
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h3 class="text-center mt-5">Minimum Requirements</h3>
+            <div class="row mt-5">
+                <div class="col ps-5">
+                    <span class="text-secondary">Operation System</span>
+                    <p>{{game.minimum_system_requirements.os}}</p>
+                </div>
+                <div class="col">
+                    <span class="text-secondary">Processor</span>
+                    <p>{{game.minimum_system_requirements.processor}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ps-5">
+                    <span class="text-secondary">Memory</span>
+                    <p>{{game.minimum_system_requirements.memory}}</p>
+                </div>
+                <div class="col">
+                    <span class="text-secondary">Graphics</span>
+                    <p>{{game.minimum_system_requirements.graphics}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ps-5">
+                    <span class="text-secondary">Storage</span>
+                    <p>{{game.minimum_system_requirements.storage}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<div class="row mx-5 px-5 d-flex justify-content-end pt-3">
-    <div class="button-save mx-5">
-        <a href="{% url 'savegame' game.id %}">
-            <button class="btn btn-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg>
-                Save Game
-            </button>
-        </a>
-    </div>
-</div>
-
-<!-- Conteudo da página-->
+<!-- Page content -->
 <section class="content d-flex justify-content-center mt-5">
     <div class="row mx-5 px-5">
-        <h1 class="text-center">{{game.title}}</h1>
-        <p class="px-5 mt-3 indent">{{game.description}}</p>
+
+        <div class="col">
+            <h2 class="ms-5 mt-5 indent">About</h2>
+            <p class="px-5 mt-3 indent">{{game.description}}</p>
+        </div>
+        <div class="col d-flex align-items-center">
+            <!-- Carrossel -->
+            <div class="row">
+                <div class="slideshow-container mt-5">
+                    <!-- Full-width images with number and caption text -->
+                    {% for item in game.screenshots %}
+                    <div class="mySlides">
+                        <img src="{{item.image}}" style="width:100%">
+                    </div>
+                    {% endfor %}
+        
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            </div>
+        </div>
+
 
         <h2 class="text-center mt-5">
             Informations
@@ -65,53 +123,6 @@
                     </tr>
                 </tbody>
             </table>
-
-            <h3 class="text-center mt-5">Minimum System Requirements</h3>
-            <div class="row mt-5">
-                <div class="col ps-5">
-                    <span class="text-secondary">Operation System</span>
-                    <p>{{game.minimum_system_requirements.os}}</p>
-                </div>
-                <div class="col">
-                    <span class="text-secondary">Processor</span>
-                    <p>{{game.minimum_system_requirements.processor}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col ps-5">
-                    <span class="text-secondary">Memory</span>
-                    <p>{{game.minimum_system_requirements.memory}}</p>
-                </div>
-                <div class="col">
-                    <span class="text-secondary">Graphics</span>
-                    <p>{{game.minimum_system_requirements.graphics}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col ps-5">
-                    <span class="text-secondary">Storage</span>
-                    <p>{{game.minimum_system_requirements.storage}}</p>
-                </div>
-            </div>
-
-            <h3 class="text-center mt-5">ScreenShots</h3>
-
-            <!-- Carrossel -->
-            <div class="slideshow-container">
-
-                <!-- Full-width images with number and caption text -->
-                {% for item in game.screenshots %}
-                <div class="mySlides">
-                    <img src="{{item.image}}" style="width:100%">
-                </div>
-                {% endfor %}
-
-                <!-- Next and previous buttons -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-            <br>
-
         </div>
 
     </div>
