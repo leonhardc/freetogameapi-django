@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load lr_filters %}
 {% block content %}
-<section class="py-5 pb-0 text-center container bg d-flex align-items-end justify-content-center"
+<!-- Thubnail do site -->
+<section class="py-5 pb-0 text-center bg d-flex align-items-end justify-content-center"
     style="min-height: 250px;">
     <div class="row py-lg-1" style="display: block; width: 100%;">
         <div class="col-lg-6 col-md-8 mx-auto">
@@ -10,17 +11,19 @@
     </div>
 </section>
 
+
+
+<!-- Filtros -->
 <div class="row my-2 mx-5 py-3">
     <form action="">
-        <!-- {% csrf_token %} -->
         <div class="row">
             <div class="col ps-5">
                 <div class="form-floating">
                     <select name="plataforma" class="form-select" id="" aria-label="Floating label select example">
-                        <option value="" selected></option>
-                        <option value="all">All</option>
-                        <option value="browser">Browser</option>
-                        <option value="pc">PC</option>
+                        <option value="" {% if request.GET.plataforma == "" %} selected {% endif %}></option>
+                        <option value="all" {% if request.GET.plataforma == "all" %} selected {% endif %}>All</option>
+                        <option value="browser" {% if request.GET.plataforma == "browser" %} selected {% endif %}>Browser</option>
+                        <option value="pc" {% if request.GET.plataforma == "pc" %} selected {% endif %}>PC</option>
                     </select>
                     <label for="floatingSelect">Platform</label>
                 </div>
@@ -28,14 +31,26 @@
             <div class="col ps-5">
                 <div class="form-floating">
                     <select name="categoria" class="form-select" id="" aria-label="Floating label select example">
-                        <option value="" selected></option>
-                        <option value="mmorpg">mmorpg</option>
-                        <option value="shooter">shooter</option>
-                        <option value="strategy">strategy</option>
-                        <option value="moba">moba</option>
-                        <option value="racing">racing</option>
-                        <option value="sports">sports</option>
-                        <option value="social">social</option>
+                        <option value="" {% if request.GET.categoria == "" %} selected {% endif %}></option>
+                        <option value="mmorpg" {% if request.GET.categoria == "mmorpg" %} selected {% endif %}>mmorpg</option>
+                        <option value="shooter" {% if request.GET.categoria == "shooter" %} selected {% endif %}>shooter</option>
+                        <option value="strategy" {% if request.GET.categoria == "strategy" %} selected {% endif %}>strategy</option>
+                        <option value="moba" {% if request.GET.categoria == "moba" %} selected {% endif %}>moba</option>
+                        <option value="racing" {% if request.GET.categoria == "racing" %} selected {% endif %}>racing</option>
+                        <option value="sports" {% if request.GET.categoria == "sports" %} selected {% endif %}>sports</option>
+                        <option value="social" {% if request.GET.categoria == "social" %} selected {% endif %}>social</option>
+                        <option value="sandbox" {% if request.GET.categoria == "sandbox" %} selected {% endif %}>sandbox</option>
+                        <option value="open-world" {% if request.GET.categoria == "open-world" %} selected {% endif %}>open-world</option>
+                        <option value="survival" {% if request.GET.categoria == "survival" %} selected {% endif %}>survival</option>
+                        <option value="pvp" {% if request.GET.categoria == "pvp" %} selected {% endif %}>pvp</option>
+                        <option value="pve" {% if request.GET.categoria == "pve" %} selected {% endif %}>pve</option>
+                        <option value="pixel" {% if request.GET.categoria == "pixel" %} selected {% endif %}>pixel</option>
+                        <option value="voxel" {% if request.GET.categoria == "voxel" %} selected {% endif %}>voxel</option>
+                        <option value="zombie" {% if request.GET.categoria == "zombie" %} selected {% endif %}>zombie</option>
+                        <option value="turn-based" {% if request.GET.categoria == "turn-based" %} selected {% endif %}>turn-based</option>
+                        <option value="first-person" {% if request.GET.categoria == "first-person" %} selected {% endif %}>first-person</option>
+                        <option value="third-Person" {% if request.GET.categoria == "third-Person" %} selected {% endif %}>third-Person</option>
+
                     </select>
                     <label for="floatingSelect">Category</label>
                 </div>
@@ -45,11 +60,11 @@
                 <div class="form-floating">
                     <select name="ordem" class="form-select" id="floatingSelect"
                         aria-label="Floating label select example">
-                        <option value="" selected></option>
-                        <option value="release-date">Release Date</option>
-                        <option value="popularity">Popularity</option>
-                        <option value="alphabetical">Alphabetical</option>
-                        <option value="relevance">Relevance</option>
+                        <option value="" {% if request.GET.ordem == "" %} selected {% endif %}></option>
+                        <option value="release-date" {% if request.GET.ordem == "release-date" %} selected {% endif %}>Release Date</option>
+                        <option value="popularity" {% if request.GET.ordem == "popularity" %} selected {% endif %}>Popularity</option>
+                        <option value="alphabetical" {% if request.GET.ordem == "alphabetical" %} selected {% endif %}>Alphabetical</option>
+                        <option value="relevance" {% if request.GET.ordem == "relevance" %} selected {% endif %}>Relevance</option>
                     </select>
                     <label for="floatingSelect">Sort</label>
                 </div>
@@ -64,6 +79,7 @@
     </form>
 </div>
 
+<!-- Games -->
 <div class="album py-5 bg-light">
     <div class="container">
 
@@ -73,9 +89,11 @@
             <div class="col">
                 <div class="card shadow-sm row-heigth">
                     <!-- Card Image -->
-                    <img class="bd-placeholder-img card-img-top" src="{{game.thumbnail}}" alt="image game">
+                    <a href="{% url 'detalhes' game.id %}">
+                        <img class="bd-placeholder-img card-img-top" src="{{game.thumbnail}}" alt="image game">
+                    </a>
                     <!-- Card body -->
-                    <div class="card-body card-body-align card-body-heigth">
+                    <div class="card-body card-body-align">
                         <h6 class="card-title">{{game.title}}</h6>
                         <p class="card-text">{{game.short_description}}</p>
                         <div class="d-flex justify-content-between align-items-center">

@@ -9,6 +9,7 @@
 <!-- Thumbnail -->
 <section class="d-flex justify-content-center">
     <div class="row">
+        {% if game.minimum_system_requirements %}
         <div class="col">
             <div class="row mt-5">
                 <img src="{{game.thumbnail}}" alt="thumbnail">
@@ -57,20 +58,40 @@
                 </div>
             </div>
         </div>
+        {% else %}
+        <div class="row mt-2">
+            <img src="{{game.thumbnail}}" alt="thumbnail">
+        </div>
+        <div class="row mt-3">
+            <div class=" d-flex justify-content-center">
+                <a href="{% url 'savegame' game.id %}">
+                    <button class="btn btn-secondary px-5 py-2 content-buttom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z" />
+                        </svg>
+                        Save Game
+                    </button>
+                </a>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </section>
 
 <!-- Page content -->
-<section class="content d-flex justify-content-center mt-5">
-    <div class="row mx-5 px-5">
-
+<section class="container mt-5">
+    <div class="row row-cols-1 row-cols-sm-2 g-2">
+        {% if game.screenshots %}
         <div class="col">
             <h2 class="ms-5 mt-5 indent">About</h2>
             <p class="px-5 mt-3 indent">{{game.description}}</p>
         </div>
-        <div class="col d-flex align-items-center">
+
+        <div class="col d-flex align-items-center justify-content-center">
             <!-- Carrossel -->
-            <div class="row">
+            <div>
                 <div class="slideshow-container mt-5">
                     <!-- Full-width images with number and caption text -->
                     {% for item in game.screenshots %}
@@ -78,53 +99,57 @@
                         <img src="{{item.image}}" style="width:100%">
                     </div>
                     {% endfor %}
-        
+
                     <!-- Next and previous buttons -->
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </div>
             </div>
         </div>
+        {% else %}
+        <h2 class="ms-5 mt-5 indent">About</h2>
+        <p class="px-5 mt-3 indent">{{game.description}}</p>
+        {% endif %}
+    </div>
+</section>
 
-
-        <h2 class="text-center mt-5">
-            Informations
-        </h2>
-        <div class="px-5 mt-3">
-            <table class="table table-hover">
-                <tbody>
-                    <tr>
-                        <td class="fw-bold">Genre</td>
-                        <td>{{game.genre}}</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold">Platform</td>
-                        <td>{{game.platform}}</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold">Publisher</td>
-                        <td>{{game.publisher}}</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold">Developer</td>
-                        <td>{{game.developer}}</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold">Release Date</td>
-                        <td>{{game.release_date|format_date}}</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold">Game URL</td>
-                        <td><a href="{{game.game_url}}">Go to game page</a></td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold">Free To Game Profile URL</td>
-                        <td><a href="{{game.freetogame_profile_url}}">Go to profile game</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+<section class="container mb-5">
+    <h2 class="indent ms-5 mt-5">
+        Informations
+    </h2>
+    <div class="px-5 mt-3">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td class="fw-bold">Genre</td>
+                    <td>{{game.genre}}</td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">Platform</td>
+                    <td>{{game.platform}}</td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">Publisher</td>
+                    <td>{{game.publisher}}</td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">Developer</td>
+                    <td>{{game.developer}}</td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">Release Date</td>
+                    <td>{{game.release_date|format_date}}</td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">Game URL</td>
+                    <td><a href="{{game.game_url}}">Go to game page</a></td>
+                </tr>
+                <tr>
+                    <td class="fw-bold">Free To Game Profile URL</td>
+                    <td><a href="{{game.freetogame_profile_url}}">Go to profile game</a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 

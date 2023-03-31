@@ -11,7 +11,9 @@
         <div class="col">
             <div class="card shadow-sm row-heigth">
                 <!-- Card Image -->
-                <img class="bd-placeholder-img card-img-top" src="{{game.thumbnail}}" alt="image game">
+                <a href="{% url 'detalhes' game.id %}">
+                    <img class="bd-placeholder-img card-img-top" src="{{game.thumbnail}}" alt="image game">
+                </a>
                 <!-- Card body -->
                 <div class="card-body card-body-align card-body-heigth">
                     <h6 class="card-title">{{game.title}}</h6>
