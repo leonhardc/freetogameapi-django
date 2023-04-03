@@ -25,13 +25,14 @@ Depois de um tempo estudando programação decidi usar python como minha linguag
 
 O Projeto que irei apresentar nessa breve descrição tem um peso simbólico um pouco maior para mim do que outros projetos meus que também foram implementados em python ou em django, porque nele eu pensei, estruturei e configurei do zero, ou seja, meus erros e acertos nesse projeto vieram basicamente de mim. O que me deixa um pouco orgulhoso, visto que, por mais que não seja uma aplicação complexa, ela tem um pouco de mim e um pouco dos meus gostos.
 
-Enfim, e do que se trata esse projeto? Esse projeto, implementado em python como linguagem principal e que usa o django como framework tem o intuito de ser uma página simples para consulta de detalhes sobre jogos dos mais variados tips e plataformas. Os dados sobre cada jogos são reais e cedidos pela API do site [FreeToGame](https://www.freetogame.com) a [FreeToGame API](https://www.freetogame.com/api-doc). 
+Enfim, e do que se trata esse projeto? Esse projeto, implementado em python como linguagem principal e que usa o django como framework tem o intuito de ser uma página para consulta de detalhes sobre jogos dos mais variados tipos e plataformas. Os dados sobre cada jogos são reais e cedidos pela API do site [FreeToGame](https://www.freetogame.com) a [FreeToGame API](https://www.freetogame.com/api-doc). 
 
 Esse projeto renderiza três templates, que serão mostrados logo a seguir.
 
-## Página Inicial
 
-Essa é a página inicial do projeto, onde a aplicação faz uma consulta diretamente a API e retorna este template renderizando os resultados como jogos dos mais variados tipos e que podem ser clicados e consultados ou salvos para consultas posteriores.
+<h2 align='center'>Página Inicial</h2>
+
+Essa é a página inicial do projeto, onde a aplicação faz uma consulta diretamente a API e retorna o template [index.html](./consumer/templates/index.html).
 
 <br>
 <div>
@@ -55,7 +56,7 @@ Abaixo dos filtros estão os resultados da pesquisa ou todos os jogos carregados
 
 A página de detalhes do jogo é mostrada jogo a seguir.
 
-## Detalhes
+<h2 align='center'>Detalhes</h2>
 
 Nesse template estão todos os detalhes de cada jogo fornecidos pela API, renderizados de uma maneira amigável. 
 
@@ -69,7 +70,7 @@ Essa página conta com três seções, onde a primeira mostra a thumnail do game
 
 O terceiro e ultimo template é o mostrado a seguir, o template de games salvos.
 
-## Games Salvos
+<h2 align='center'>Games Salvos</h2>
 
 Essa é a página mais simples contando somente com os cards referentes a cada game que você salvou no decorrer da sua pesquisa na página inicial. 
 
@@ -81,7 +82,7 @@ Essa é a página mais simples contando somente com os cards referentes a cada g
 
 A única particularidade de cada card desse template em relação aos cards do template da página inicial é que cada um contém um botão para excluir o game da lista de games salvos.
 
-## Referências
+<h2 align='center'>Referências</h2>
 
 * [FreeToGame API](https://www.freetogame.com/api-doc)
 * [Bootstrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
