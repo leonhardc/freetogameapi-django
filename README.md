@@ -1,13 +1,25 @@
-# FreeToGame API Consumer com Python e Django
+<h1 align='center'>
+    FreeToGame API Consumer com Python e Django
+</h1>
+<p align="center">
+    <img src="https://img.shields.io/badge/Por-Leonardo%20Rodrigues%20da%20Costa-blue"/>
+    <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-green"/>
+</p>
 
-![python_badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![django_badge](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![html5_badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![css3_badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![javascript_badge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![bootstrap_badge](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+<h2 align='center'>Tecnologias Utilizadas</h2>
 
-Olá a todos, espero que estejam todos bem.
+<br>
+<div align='center'>
+    <img src='https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white'/>
+    <img src='https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white'/>
+    <img src='https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white'/>
+    <img src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/>
+    <img src='https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E'/>
+    <img src='https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white'/>
+</div>
+<br>
+
+<h2 align='center'>Sobre</h2>
 
 Depois de um tempo estudando programação decidi usar python como minha linguagem principal e o motivo principal dessa escolha foi principalmente por sua interdisciplinaridade. Com python podemos desenvolver desde aplicações desktop e mobile até aplicações Web completas, podemos criar projetos inteiros e dashboads para análise de dados e podemos também usar essa linguagem para projetos robustos de aprendizado de máquina e processamento digital de imagens. Enfim, acho que já entenderam onde quero chegar, eu gosto da liberdade de escolher uma area de estudos e não ter que voltar à estaca zero em uma linguagem de programação. Por mais que qualquer uma dessas aplicações que citei nas linhas acima possam ser implementadas em alguma outra linguagem, python tem outro ponto que me encantou muito, sua facilidade de aprendizado e por isso uso python como linguagem principal e pretendo continuar usando em projetos futuros. 
 
@@ -72,5 +84,7 @@ A única particularidade de cada card desse template em relação aos cards do t
 ## Referências
 
 * [FreeToGame API](https://www.freetogame.com/api-doc)
+* [Bootstrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+* [Django Docs](https://docs.djangoproject.com/en/4.2/)
 
 
