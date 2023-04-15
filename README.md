@@ -39,7 +39,7 @@ Esse projeto renderiza três templates, que serão mostrados logo a seguir.
 <h2 align='center'>Página Inicial</h2>
 
 
-Essa é a página inicial do projeto, onde a aplicação faz uma consulta diretamente a API e retorna o template [index.html](./consumer/templates/index.html). {align=justfy}
+Essa é a página inicial do projeto, onde a aplicação faz uma consulta diretamente a API e retorna o template [index.html](./consumer/templates/index.html).
 
 <br>
 <div>
