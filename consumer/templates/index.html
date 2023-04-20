@@ -16,8 +16,8 @@
 <!-- Filtros -->
 <div class="row my-2 mx-5 py-3">
     <form action="">
-        <div class="row">
-            <div class="col ps-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+            <div class="col ps-5 mb-2">
                 <div class="form-floating">
                     <select name="plataforma" class="form-select" id="" aria-label="Floating label select example">
                         <option value="" {% if request.GET.plataforma == "" %} selected {% endif %}></option>
@@ -28,7 +28,7 @@
                     <label for="floatingSelect">Platform</label>
                 </div>
             </div>
-            <div class="col ps-5">
+            <div class="col ps-5 mb-2">
                 <div class="form-floating">
                     <select name="categoria" class="form-select" id="" aria-label="Floating label select example">
                         <option value="" {% if request.GET.categoria == "" %} selected {% endif %}></option>
@@ -55,7 +55,7 @@
                     <label for="floatingSelect">Category</label>
                 </div>
             </div>
-            <div class="col ps-5">
+            <div class="col ps-5 mb-2">
 
                 <div class="form-floating">
                     <select name="ordem" class="form-select" id="floatingSelect"
