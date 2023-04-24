@@ -68,6 +68,16 @@ img {
     background-color: aliceblue;
 }
 
+div .no-results {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./../bg/no-results.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: aliceblue;
+}
+
 .row-heigth {
     min-height: 415px;
 }

@@ -11,12 +11,39 @@ def index(request):
     plataforma = request.GET.get('plataforma')
     categoria = request.GET.get('categoria')
     ordem = request.GET.get('ordem')
-
+    pesquisa = request.GET.get('search')
+    print('*'*20)
+    print('Pesquisa', pesquisa)
+    print('Plataforma', plataforma)
+    print('Categoria', categoria)
+    print('Ordem', ordem)
+    print('*'*20)
+    # Iniciando o Objeto Session
     if not request.session.get('games_salvos'):
         request.session['games_salvos'] = []
         request.session.save()
 
+    # Se existe algum termo no formulario de pesquisa
+    if pesquisa != None:
+            
+        consumer = ConsumerAPI()
+        games = consumer.consume()
+        filter = []
+
+        for game in games:
+            if pesquisa.lower() in game['title'].lower() or \
+                pesquisa.lower() in game['short_description'].lower() or \
+                pesquisa.lower() in game['genre'].lower():
+                filter.append(game)
+
+        games = filter
+        paginator = Paginator(games, NUMBER_OF_GAMES) # Paginação
+        page = request.GET.get('page')
+        games_list = paginator.get_page(page)
+        return render(request, 'index.html', context={'games': games_list}) 
+
     
+    # Se existe alguma plataforma, categoria ou ordem pesquisada
     if plataforma != '' or categoria != '' or ordem != '':
         
         url = 'https://www.freetogame.com/api/games?'   
@@ -79,7 +106,6 @@ def saveGame(request, id):
         request.session.save()
 
     return redirect(referer)
-
 
 def deleteGame(request, id):
 

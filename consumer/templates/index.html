@@ -12,91 +12,120 @@
         </div>
     </section>
 
-    <!-- Filtros -->
-    <div class="row my-2 mx-5 py-3">
-        <form action="">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
-                <div class="col ps-5 mb-2">
-                    <div class="form-floating">
-                        <select name="plataforma" class="form-select" id="" aria-label="Floating label select example">
-                            <option value="" {% if request.GET.plataforma == "" %} selected {% endif %}></option>
-                            <option value="all" {% if request.GET.plataforma == "all" %} selected {% endif %}>All</option>
-                            <option value="browser" {% if request.GET.plataforma == "browser" %} selected {% endif %}>Browser
-                            </option>
-                            <option value="pc" {% if request.GET.plataforma == "pc" %} selected {% endif %}>PC</option>
-                        </select>
-                        <label for="floatingSelect">Platform</label>
-                    </div>
-                </div>
-                <div class="col ps-5 mb-2">
-                    <div class="form-floating">
-                        <select name="categoria" class="form-select" id="" aria-label="Floating label select example">
-                            <option value="" {% if request.GET.categoria == "" %} selected {% endif %}></option>
-                            <option value="mmorpg" {% if request.GET.categoria == "mmorpg" %} selected {% endif %}>mmorpg
-                            </option>
-                            <option value="shooter" {% if request.GET.categoria == "shooter" %} selected {% endif %}>shooter
-                            </option>
-                            <option value="strategy" {% if request.GET.categoria == "strategy" %} selected {% endif %}>
-                                strategy</option>
-                            <option value="moba" {% if request.GET.categoria == "moba" %} selected {% endif %}>moba</option>
-                            <option value="racing" {% if request.GET.categoria == "racing" %} selected {% endif %}>racing
-                            </option>
-                            <option value="sports" {% if request.GET.categoria == "sports" %} selected {% endif %}>sports
-                            </option>
-                            <option value="social" {% if request.GET.categoria == "social" %} selected {% endif %}>social
-                            </option>
-                            <option value="sandbox" {% if request.GET.categoria == "sandbox" %} selected {% endif %}>sandbox
-                            </option>
-                            <option value="open-world" {% if request.GET.categoria == "open-world" %} selected {% endif %}>
-                                open-world</option>
-                            <option value="survival" {% if request.GET.categoria == "survival" %} selected {% endif %}>
-                                survival</option>
-                            <option value="pvp" {% if request.GET.categoria == "pvp" %} selected {% endif %}>pvp</option>
-                            <option value="pve" {% if request.GET.categoria == "pve" %} selected {% endif %}>pve</option>
-                            <option value="pixel" {% if request.GET.categoria == "pixel" %} selected {% endif %}>pixel
-                            </option>
-                            <option value="voxel" {% if request.GET.categoria == "voxel" %} selected {% endif %}>voxel
-                            </option>
-                            <option value="zombie" {% if request.GET.categoria == "zombie" %} selected {% endif %}>zombie
-                            </option>
-                            <option value="turn-based" {% if request.GET.categoria == "turn-based" %} selected {% endif %}>
-                                turn-based</option>
-                            <option value="first-person" {% if request.GET.categoria == "first-person" %} selected {% endif %}>first-person</option>
-                            <option value="third-Person" {% if request.GET.categoria == "third-Person" %} selected {% endif %}>third-Person</option>
-
-                        </select>
-                        <label for="floatingSelect">Category</label>
-                    </div>
-                </div>
-                <div class="col ps-5 mb-2">
-
-                    <div class="form-floating">
-                        <select name="ordem" class="form-select" id="floatingSelect"
-                            aria-label="Floating label select example">
-                            <option value="" {% if request.GET.ordem == "" %} selected {% endif %}></option>
-                            <option value="release-date" {% if request.GET.ordem == "release-date" %} selected {% endif %}>
-                                Release Date</option>
-                            <option value="popularity" {% if request.GET.ordem == "popularity" %} selected {% endif %}>
-                                Popularity</option>
-                            <option value="alphabetical" {% if request.GET.ordem == "alphabetical" %} selected {% endif %}>
-                                Alphabetical</option>
-                            <option value="relevance" {% if request.GET.ordem == "relevance" %} selected {% endif %}>Relevance
-                            </option>
-                        </select>
-                        <label for="floatingSelect">Sort</label>
-                    </div>
-
-                </div>
-                <div class="col d-flex align-items-center justify-content-center">
-
-                    <button type="submit" class="btn btn-dark">Aplicar Filtros</button>
-
-                </div>
+    <div class="d-flex justify-content-end mx-5 px-5 pt-5">
+        <form class="row g-3 me-2">
+            <div class="col-auto">
+              <label for="inputPassword2" class="visually-hidden">Password</label>
+              <input type="text" class="form-control" id="" placeholder="Search" name="search">
             </div>
-        </form>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        <a class="btn btn-dark" data-bs-toggle="collapse" href="#filters" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Filter
+        </a>
+    </div>
+    <div class="collapse mx-5" id="filters">
+        <div class="card card-body mx-5 mt-2">
+            
+            <!-- Filtros -->
+            <div class="row my-2 mx-5 py-3">
+                <form action="">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+                        <div class="col ps-5 mb-2">
+                            <div class="form-floating">
+                                <select name="plataforma" class="form-select" id="" aria-label="Floating label select example">
+                                    <option value="" {% if request.GET.plataforma == "" %} selected {% endif %}></option>
+                                    <option value="all" {% if request.GET.plataforma == "all" %} selected {% endif %}>All</option>
+                                    <option value="browser" {% if request.GET.plataforma == "browser" %} selected {% endif %}>Browser
+                                    </option>
+                                    <option value="pc" {% if request.GET.plataforma == "pc" %} selected {% endif %}>PC</option>
+                                </select>
+                                <label for="floatingSelect">Platform</label>
+                            </div>
+                        </div>
+                        <div class="col ps-5 mb-2">
+                            <div class="form-floating">
+                                <select name="categoria" class="form-select" id="" aria-label="Floating label select example">
+                                    <option value="" {% if request.GET.categoria == "" %} selected {% endif %}></option>
+                                    <option value="mmorpg" {% if request.GET.categoria == "mmorpg" %} selected {% endif %}>mmorpg
+                                    </option>
+                                    <option value="shooter" {% if request.GET.categoria == "shooter" %} selected {% endif %}>shooter
+                                    </option>
+                                    <option value="strategy" {% if request.GET.categoria == "strategy" %} selected {% endif %}>
+                                        strategy</option>
+                                    <option value="moba" {% if request.GET.categoria == "moba" %} selected {% endif %}>moba</option>
+                                    <option value="racing" {% if request.GET.categoria == "racing" %} selected {% endif %}>racing
+                                    </option>
+                                    <option value="sports" {% if request.GET.categoria == "sports" %} selected {% endif %}>sports
+                                    </option>
+                                    <option value="social" {% if request.GET.categoria == "social" %} selected {% endif %}>social
+                                    </option>
+                                    <option value="sandbox" {% if request.GET.categoria == "sandbox" %} selected {% endif %}>sandbox
+                                    </option>
+                                    <option value="open-world" {% if request.GET.categoria == "open-world" %} selected {% endif %}>
+                                        open-world</option>
+                                    <option value="survival" {% if request.GET.categoria == "survival" %} selected {% endif %}>
+                                        survival</option>
+                                    <option value="pvp" {% if request.GET.categoria == "pvp" %} selected {% endif %}>pvp</option>
+                                    <option value="pve" {% if request.GET.categoria == "pve" %} selected {% endif %}>pve</option>
+                                    <option value="pixel" {% if request.GET.categoria == "pixel" %} selected {% endif %}>pixel
+                                    </option>
+                                    <option value="voxel" {% if request.GET.categoria == "voxel" %} selected {% endif %}>voxel
+                                    </option>
+                                    <option value="zombie" {% if request.GET.categoria == "zombie" %} selected {% endif %}>zombie
+                                    </option>
+                                    <option value="turn-based" {% if request.GET.categoria == "turn-based" %} selected {% endif %}>
+                                        turn-based</option>
+                                    <option value="first-person" {% if request.GET.categoria == "first-person" %} selected {% endif %}>first-person</option>
+                                    <option value="third-Person" {% if request.GET.categoria == "third-Person" %} selected {% endif %}>third-Person</option>
+
+                                </select>
+                                <label for="floatingSelect">Category</label>
+                            </div>
+                        </div>
+                        <div class="col ps-5 mb-2">
+
+                            <div class="form-floating">
+                                <select name="ordem" class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example">
+                                    <option value="" {% if request.GET.ordem == "" %} selected {% endif %}></option>
+                                    <option value="release-date" {% if request.GET.ordem == "release-date" %} selected {% endif %}>
+                                        Release Date</option>
+                                    <option value="popularity" {% if request.GET.ordem == "popularity" %} selected {% endif %}>
+                                        Popularity</option>
+                                    <option value="alphabetical" {% if request.GET.ordem == "alphabetical" %} selected {% endif %}>
+                                        Alphabetical</option>
+                                    <option value="relevance" {% if request.GET.ordem == "relevance" %} selected {% endif %}>Relevance
+                                    </option>
+                                </select>
+                                <label for="floatingSelect">Sort</label>
+                            </div>
+
+                        </div>
+                        <div class="col d-flex align-items-center justify-content-center">
+
+                            <button type="submit" class="btn btn-dark"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                                Search</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
 
     <!-- Games -->
+    {% if games %}
     <div class="album py-5 bg-light">
         <div class="container">
 
@@ -150,7 +179,14 @@
         <nav aria-label="Page navigation example" class="mt-5 pt-3 d-flex justify-content-center">
             <ul class="pagination">
                 {% if games.has_previous %}
-                    {% if request.GET.plataforma or request.GET.categoria or request.GET.ordem %}
+                    {% if request.GET.search %}
+                    <li class="page-item "><a class="page-link text-dark"
+                        href="?search={{request.GET.search}}&page={{games.previous_page_number}}">Anterior</a>
+                    </li>
+                    <li class="page-item "><a class="page-link text-dark"
+                        href="?search={{request.GET.search}}&page={{games.previous_page_number}}">{{games.previous_page_number}}</a>
+                    </li>
+                    {% elif request.GET.plataforma or request.GET.categoria or request.GET.ordem %}
                         <li class="page-item "><a class="page-link text-dark"
                                 href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.previous_page_number}}">Anterior</a>
                         </li>
@@ -170,7 +206,16 @@
                 <li class="page-item"><a class="page-link bg-dark fw-bold text-white" href="#">{{games.number}}</a></li>
 
                 {% if games.has_next %}
-                    {% if request.GET.plataforma or request.GET.categoria or request.GET.ordem %}
+                    {% if request.GET.search %}
+                    <li class="page-item">
+                        <a class="page-link text-dark"
+                            href="?search={{request.GET.search}}&page={{games.next_page_number}}">{{games.next_page_number}}</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark"
+                            href="?search={{request.GET.search}}&page={{games.next_page_number}}">Próxima</a>
+                    </li>
+                    {% elif request.GET.plataforma or request.GET.categoria or request.GET.ordem %}
                         <li class="page-item">
                             <a class="page-link text-dark"
                                 href="?plataforma={{request.GET.plataforma}}&categoria={{request.GET.categoria}}&ordem={{request.GET.ordem}}&page={{games.next_page_number}}">{{games.next_page_number}}</a>
@@ -193,4 +238,13 @@
             </ul>
         </nav>
     </div>
+    {% else %}
+    <div class="my-5 d-flex flex-column align-items-center justify-content-center" style="min-height: 50vh;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        <h2 class="text-center mt-3">Sorry! No results found :( </h2>
+        <p class="text-secondary">We are sorry what you were lookink for. Please try another way.</p>
+    </div>
+    {% endif %}
 {% endblock %}
