@@ -12,12 +12,7 @@ def index(request):
     categoria = request.GET.get('categoria')
     ordem = request.GET.get('ordem')
     pesquisa = request.GET.get('search')
-    print('*'*20)
-    print('Pesquisa', pesquisa)
-    print('Plataforma', plataforma)
-    print('Categoria', categoria)
-    print('Ordem', ordem)
-    print('*'*20)
+
     # Iniciando o Objeto Session
     if not request.session.get('games_salvos'):
         request.session['games_salvos'] = []
