@@ -3,7 +3,7 @@
 </h1>
 <p align="center">
     <img src="https://img.shields.io/badge/Por-Leonardo%20Rodrigues%20da%20Costa-blue"/>
-    <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-green"/>
+    <img src="https://img.shields.io/badge/Status-Concluido-green"/>
 </p>
 
 <h2 align='center'>Tecnologias Utilizadas</h2>
