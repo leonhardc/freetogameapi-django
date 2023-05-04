@@ -32,6 +32,8 @@ O Projeto que irei apresentar nessa breve descrição tem um peso simbólico um 
 
 Enfim, e do que se trata esse projeto? Esse projeto, implementado em python como linguagem principal e que usa o django como framework tem o intuito de ser uma página para consulta de detalhes sobre jogos dos mais variados tipos e plataformas. Os dados sobre cada jogos são reais e cedidos pela API do site [FreeToGame](https://www.freetogame.com) a [FreeToGame API](https://www.freetogame.com/api-doc). 
 
+Segue o link de um video demonstrativo do que seria o projeto em execussão em um servidor local [FreeToGame API Consumer - Video](https://www.youtube.com/watch?v=nDUvpvK3a0M)
+
 
 <h2 align='center'>Página Inicial</h2>
 
